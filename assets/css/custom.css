@@ -1,1 +1,834 @@
-﻿/* Place Your Custom Styles Here */
+/*------------------------------------------------------------------
+  Personal Portfolio Stylesheet - Tubagus Adhitya Permana
+  Minimalist, authentic personal engineer portfolio.
+  Follows GEMINI.md (antislop-ui) rules:
+  - Work-first craft aesthetic
+  - No corporate agency appbars / stat cards / service cards
+  - High accessibility & zero-friction touch targets
+  - Zero CLS (intrinsic aspect-ratios)
+-------------------------------------------------------------------*/
+
+:root {
+  --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Palette */
+  --bg-page: #fafafa;
+  --bg-card: #ffffff;
+  --border-subtle: #e5e7eb;
+  --border-hover: #cbd5e1;
+
+  --text-title: #111827;
+  --text-main: #374151;
+  --text-muted: #6b7280;
+  --text-subtle: #9ca3af;
+
+  /* Subtle deliberate accent */
+  --accent: #2563eb;
+  --accent-soft: #eff6ff;
+  --accent-border: #dbeafe;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* Shadows */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-hover: 0 10px 20px -5px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-title);
+  letter-spacing: -0.02em;
+}
+
+/* Page container limiter for refined editorial feel */
+.portfolio-wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.5rem 6.5rem; /* bottom padding so content is never covered by floating dock */
+}
+
+/* 1. Minimal Quiet Top Bar - Touch Friendly */
+.site-topbar {
+  padding: 1.75rem 0 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 3.5rem;
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-title);
+  text-decoration: none !important;
+  letter-spacing: -0.01em;
+  padding: 0.35rem 0;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.15s ease;
+}
+
+.topbar-brand:hover {
+  color: var(--accent);
+}
+
+.topbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item-link {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none !important;
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px; /* comfortable touch target */
+  transition: all 0.15s ease;
+}
+
+.nav-item-link:hover {
+  color: var(--text-title);
+  background-color: var(--border-subtle);
+}
+
+.nav-item-link.active {
+  color: var(--accent);
+  background-color: var(--accent-soft);
+  font-weight: 700;
+}
+
+/* 2. Authentic Personal Hero */
+.personal-hero {
+  margin-bottom: 4rem;
+}
+
+.personal-name {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-title);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+.personal-headline {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.personal-bio {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-main);
+  max-width: 760px;
+  margin-bottom: 1.75rem;
+}
+
+.personal-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #065f46;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+
+.status-dot-active {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.personal-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.personal-link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-title);
+  text-decoration: none !important;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.15s ease;
+}
+
+.personal-link-item:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* 3. Section Titles & Sticky Filter */
+.section-header-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 1010;
+  background-color: rgba(250, 250, 250, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.personal-section-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+}
+
+.personal-section-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* Minimalist Category Tabs with Count */
+.quiet-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.quiet-filter a {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px; /* touch target friendly */
+  transition: all 0.15s ease;
+}
+
+.quiet-filter a:hover {
+  color: var(--text-title);
+  border-color: var(--border-hover);
+  background-color: #f8fafc;
+}
+
+.quiet-filter a.active {
+  color: var(--text-title);
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-color: var(--border-hover);
+  font-weight: 700;
+}
+
+.filter-count {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.06);
+  color: var(--text-muted);
+  margin-left: 0.35rem;
+  line-height: 1.2;
+}
+
+.quiet-filter a.active .filter-count {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* 4. Project Card Design (Craft / Work-First) */
+.work-item-wrapper {
+  margin-bottom: 2rem;
+}
+
+.work-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-subtle);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.work-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-hover);
+}
+
+.work-image-container {
+  width: 100%;
+  background-color: #f8fafc;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid var(--border-subtle);
+  display: block;
+}
+
+.work-image-zoom-link {
+  display: block;
+  position: relative;
+  cursor: zoom-in;
+  text-decoration: none !important;
+}
+
+.work-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.work-card:hover .work-image {
+  transform: scale(1.02);
+}
+
+.zoom-badge-hint {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  background-color: rgba(17, 24, 39, 0.85);
+  color: #ffffff;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.work-image-zoom-link:hover .zoom-badge-hint {
+  opacity: 1;
+  background-color: var(--accent);
+}
+
+.work-content {
+  padding: 1.35rem 1.4rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.work-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.work-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-title);
+  margin-bottom: 0.65rem;
+  line-height: 1.35;
+}
+
+.work-desc {
+  font-size: 0.875rem;
+  color: var(--text-main);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+/* Card Action Button Row */
+.work-footer-action-row {
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.work-company-tag {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.work-action-btn {
+  font-family: var(--font-heading);
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: var(--accent);
+  background-color: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+  min-height: 38px;
+}
+
+.work-action-btn:hover {
+  background-color: var(--accent);
+  color: #ffffff !important;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.work-internal-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-subtle);
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* 5. Education & Talks */
+.talks-section {
+  margin-top: 3.5rem;
+  margin-bottom: 4.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.talk-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-subtle);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.talk-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.talk-thumb-wrap {
+  width: 100%;
+  background-color: #f8fafc;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.talk-thumb {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.talk-badge {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background-color: rgba(17, 24, 39, 0.85);
+  color: #ffffff;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.68rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.talk-body {
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.talk-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+  color: var(--text-title);
+}
+
+.talk-desc {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.talk-link {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.talk-link:hover {
+  color: #1d4ed8;
+}
+
+/* 6. Authentic Personal Contact Signoff */
+.personal-contact-section {
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--border-subtle);
+  margin-bottom: 2rem;
+}
+
+.contact-signoff-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.contact-signoff-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.contact-button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.contact-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-title);
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  padding: 0.6rem 1.15rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none !important;
+  box-shadow: var(--shadow-subtle);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 42px;
+}
+
+.contact-pill-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent-border);
+  background-color: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+/* 7. Floating Contact Dock (Thumb Zone on Mobile & Corner on Desktop) */
+.floating-dock-wrapper {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1040;
+  pointer-events: none;
+  width: auto;
+  max-width: 95vw;
+}
+
+.floating-dock {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  padding: 0.4rem 0.5rem 0.4rem 0.85rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.floating-dock:hover {
+  box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.15), 0 6px 10px -2px rgba(0, 0, 0, 0.07);
+}
+
+.dock-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-title);
+  letter-spacing: 0.02em;
+  padding-right: 0.25rem;
+}
+
+.dock-divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--border-subtle);
+}
+
+.dock-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  border: none;
+  background-color: transparent;
+  color: var(--text-title);
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 38px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dock-wa {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.dock-wa:hover {
+  background-color: #d1fae5;
+  color: #047857;
+  transform: translateY(-1px);
+}
+
+.dock-copy-email {
+  background-color: #f8fafc;
+  color: var(--text-title);
+  border: 1px solid var(--border-subtle);
+}
+
+.dock-copy-email:hover {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent-border);
+  transform: translateY(-1px);
+}
+
+/* Copy Toast */
+.copy-toast {
+  position: fixed;
+  bottom: 5.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: #111827;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.825rem;
+  font-weight: 600;
+  padding: 0.65rem 1.25rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1050;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.copy-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* 8. Tactile Press Feedback (Native App Feel on Tap) */
+.work-card,
+.talk-card,
+.work-action-btn,
+.contact-pill-btn,
+.dock-item,
+.quiet-filter a,
+.nav-item-link,
+.personal-link-item {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.work-card:active,
+.talk-card:active {
+  transform: scale(0.985);
+  transition: transform 0.08s ease;
+}
+
+.work-action-btn:active,
+.contact-pill-btn:active,
+.dock-item:active {
+  transform: scale(0.95);
+  transition: transform 0.08s ease;
+}
+
+.quiet-filter a:active,
+.nav-item-link:active {
+  transform: scale(0.96);
+  transition: transform 0.08s ease;
+}
+
+/* 9. Footer */
+.personal-footer {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-subtle);
+  font-size: 0.8125rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Back to top button */
+.btn-back-to-top {
+  border-radius: var(--radius-sm) !important;
+  background-color: var(--text-title) !important;
+  border-color: var(--text-title) !important;
+  color: #ffffff !important;
+  box-shadow: var(--shadow-subtle) !important;
+  bottom: 5.5rem;
+  right: 1.5rem;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.btn-back-to-top:hover {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .site-topbar {
+    padding: 1.25rem 0 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .portfolio-wrapper {
+    padding: 0 1.25rem 6.5rem;
+  }
+  .personal-name {
+    font-size: 2rem;
+  }
+  .personal-headline {
+    font-size: 1.1rem;
+  }
+  .section-header-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .personal-footer {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+  .dock-status-text {
+    display: none; /* keep dock compact on narrow phones */
+  }
+  .floating-dock {
+    padding: 0.35rem 0.45rem 0.35rem 0.75rem;
+    gap: 0.35rem;
+  }
+  .dock-item {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.775rem;
+  }
+  .btn-back-to-top {
+    display: none !important; /* avoid screen crowding on mobile */
+  }
+  .topbar-nav {
+    gap: 0.25rem;
+  }
+  .nav-item-link {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.65rem;
+  }
+}
